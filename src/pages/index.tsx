@@ -156,16 +156,19 @@ const IndexPage: React.FC<PageProps> = () => {
   }, [handleMove]);
 
   const handleTouchStart = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // 阻止默認滾動行為
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
     handleStart(touch.clientX - rect.left, touch.clientY - rect.top);
   }, [handleStart]);
 
-  const handleTouchEnd = useCallback(() => {
+  const handleTouchEnd = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // 阻止默認滾動行為
     handleEnd();
   }, [handleEnd]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // 阻止默認滾動行為
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
     handleMove(touch.clientX - rect.left, touch.clientY - rect.top);
