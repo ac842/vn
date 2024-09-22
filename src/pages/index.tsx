@@ -8,8 +8,8 @@ import FacebookIcon from '../images/facebook.svg';
 import InstagramIcon from '../images/instagram.svg';
 import TwitterIcon from '../images/twitter.svg';
 import VimeoIcon from '../images/vimeo.svg';
-import VideoBackgroundLow from '../images/icon-low.mp4';
-import VideoBackgroundHigh from '../images/icon.mp4';
+import VideoBackgroundLow from '../images/icon-low.webm';
+import VideoBackgroundHigh from '../images/icon.webm';
 import MaskImageLow from '../images/Mask-low.svg';
 import MaskImageHigh from '../images/Mask.svg';
 
@@ -144,34 +144,28 @@ const IndexPage: React.FC<PageProps> = () => {
   }, [isDrawing, draw]);
 
   const handleMouseDown = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
     handleStart(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
   }, [handleStart]);
 
-  const handleMouseUp = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
+  const handleMouseUp = useCallback(() => {
     handleEnd();
   }, [handleEnd]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
     handleMove(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
   }, [handleMove]);
 
   const handleTouchStart = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
     handleStart(touch.clientX - rect.left, touch.clientY - rect.top);
   }, [handleStart]);
 
-  const handleTouchEnd = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
+  const handleTouchEnd = useCallback(() => {
     handleEnd();
   }, [handleEnd]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault(); // 阻止默认行为
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
     handleMove(touch.clientX - rect.left, touch.clientY - rect.top);
@@ -193,8 +187,10 @@ const IndexPage: React.FC<PageProps> = () => {
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
       />
-      
-      {/* 社交链接图标 */}
+      <div className="content">
+        <h1>{content[lang].title}</h1>
+        <p>{content[lang].description}</p>
+      </div>
       <div className="social-links">
         <a href="https://t.me/ac_vii" target="_blank" rel="noopener noreferrer">
           <img src={TelegramIcon} alt="Telegram" />
@@ -212,12 +208,6 @@ const IndexPage: React.FC<PageProps> = () => {
           <img src={VimeoIcon} alt="Vimeo" />
         </a>
       </div>
-
-      <div className="content">
-        <h1>{content[lang].title}</h1>
-        <p>{content[lang].description}</p>
-      </div>
-      
       {!isHighQualityLoaded && <div className="loading-indicator">Loading high quality content...</div>}
     </div>
   );
