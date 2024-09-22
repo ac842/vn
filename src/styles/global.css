@@ -54,3 +54,13 @@
     height: 100%;
     object-fit: contain;
   }
+
+  .scratch-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    touch-action: none; /* 禁止瀏覽器的原生滾動行為 */
+  }
