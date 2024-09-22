@@ -8,8 +8,8 @@ import FacebookIcon from '../images/facebook.svg';
 import InstagramIcon from '../images/instagram.svg';
 import TwitterIcon from '../images/twitter.svg';
 import VimeoIcon from '../images/vimeo.svg';
-import VideoBackgroundLow from '../images/icon-low.webm';
-import VideoBackgroundHigh from '../images/icon.webm';
+import VideoBackgroundLow from '../images/icon-low.mp4';
+import VideoBackgroundHigh from '../images/icon.mp4';
 import MaskImageLow from '../images/Mask-low.svg';
 import MaskImageHigh from '../images/Mask.svg';
 
