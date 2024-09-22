@@ -192,7 +192,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <p>{content[lang].description}</p>
       </div>
       <div className="social-links">
-        <a href="https://t.me/ac_voo" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/ac_vii" target="_blank" rel="noopener noreferrer">
           <img src={TelegramIcon} alt="Telegram" />
         </a>
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
