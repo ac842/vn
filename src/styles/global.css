@@ -36,11 +36,11 @@
   
   .social-links {
     position: absolute;
-    top: 20px;
+    bottom: 20px; /* 将图标放置在页面底部 */
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-around; /* 平均分布图标 */
+    justify-content: space-around; /* 图标平均分布 */
     align-items: center;
     padding: 0 20px;
     z-index: 20;
@@ -48,7 +48,7 @@
   
   .social-links a {
     display: inline-block;
-    width: 50px;  /* 控制图标的大小 */
+    width: 50px;  /* 图标大小 */
     height: 50px;
   }
   
@@ -60,5 +60,5 @@
   }
   
   .social-links img:hover {
-    transform: scale(1.1); /* 悬停时放大 */
+    transform: scale(1.1); /* 悬停时放大效果 */
   }
